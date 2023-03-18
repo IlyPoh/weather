@@ -1,7 +1,10 @@
-body {
-    background: black;
+// base
+@import './base/reset';
+@import './base/config';
+@import './base/global';
 
-    h1 {
-        color: white;
-    }
-}
+// fonts
+@import './fonts/icons';
+
+// pages
+@import './pages/weather';

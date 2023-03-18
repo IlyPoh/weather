@@ -7,8 +7,65 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="content">
-        <h1>sdsada</h1>
+    <div class="weather-content">
+        <div class="weather-section">
+            <div class="weather-logo">
+                <h1>Weather app</h1>
+            </div>
+        </div>
+        <div class="weather-section weather-header">
+            <div class="weather-city">
+                <span class="weather-city-selected">London</span>
+                <ul class="weather-city-selection">
+                </ul>                
+            </div>
+            <div class="weather-current">
+                <div class="weather-image"></div>
+            </div>
+        </div>
+        <div class="weather-section weather-body">
+            <div class="weather-current">
+                <div class="weather-current-temperature">
+                    <span class="weather-temperature"></span>
+                </div>
+                <div class="weather-current-state"></div>
+            </div>
+        </div>
+        <div class="weather-section weather-footer">
+            <div class="weather-current-block">
+                <div class="weather-current-time"></div>
+                <div class="weather-current-city"></div>
+                <div class="weather-current-temperature">
+                    <div class="weather-image"></div>
+                    <div>
+                        <span class="weather-temperature"></span>
+                    </div>
+                </div>
+                <div class="weather-current-info"></div>
+                <div class="weather-current-additional-info">
+                    <div class="weather-current-section">
+                        <span class="icon-direction-pointer"></span>
+                        <span class="weather-wind"></span>
+                    </div>
+                    <div class="weather-current-section">
+                        <span class="icon-wind"></span>
+                        <span class="weather-pressure"></span>
+                    </div>
+                    <div class="weather-current-section">
+                        Humidity: 
+                        <span class="weather-humidity"></span>
+                    </div>
+                    <div class="weather-current-section">
+                        Dew point: 
+                        <span class="weather-dew"></span>
+                    </div>
+                    <div class="weather-current-section">
+                        Visibility: 
+                        <span class="weather-visibility"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="dist/main.js"></script>
 </body>
