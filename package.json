@@ -1,0 +1,25 @@
+{
+    "name": "weather",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "npx webpack --mode production",
+        "start": "npx webpack-dev-server --mode development"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "css-loader": "^6.7.3",
+        "html-loader": "^4.2.0",
+        "html-webpack-plugin": "^5.5.0",
+        "sass": "^1.59.3",
+        "sass-loader": "^13.2.0",
+        "style-loader": "^3.3.2",
+        "webpack": "^5.76.2",
+        "webpack-cli": "^5.0.1",
+        "webpack-dev-server": "^4.13.0"
+    }
+}
