@@ -36,14 +36,16 @@
         .weather-city {
             position: relative;
             cursor: pointer;
+            min-width: 200px;
 
             &-selected {
-                padding: 5px 25px 0;
+                padding: 10px 30px;
                 border: 2px solid $color-white;
                 border-bottom: none;
                 border-top-left-radius: 20px;
                 border-top-right-radius: 20px;
-                transition: background .3s ease;
+                transition: background $defaultTransition;
+                text-align: center;
 
                 &:hover {
                     background: $color-shadow-black;
@@ -51,12 +53,12 @@
             }
             
             &-selection {
+                min-width: 100%;
                 opacity: 1;
                 visibility: visible;
-                transition: opacity .2s ease, visibility .2s ease;
+                transition: opacity $defaultTransition, visibility $defaultTransition;
 
                 position: absolute;
-                margin-top: 5px;
 
                 &.hidden {
                     opacity: 0;
@@ -65,10 +67,10 @@
             }
             
             &-city {
-                padding: 5px;
+                padding: 5px 10px;
                 text-align: center;
                 border: 2px solid $color-white;
-                transition: background .3s ease;
+                transition: background $defaultTransition;
 
                 &:hover {
                     background: $color-shadow-black;
@@ -107,6 +109,26 @@
 
         .weather-current {
 
+            &-section {
+                display: flex;
+                align-items: center;
+                line-height: 14px;
+
+                svg {
+                    max-width: 14px;
+                }
+                g {
+                    fill: $color-white;
+                }
+                span {
+                    margin-left: 5px;
+                }
+
+                .icon-direction-pointer {
+                    transition: transform $defaultTransition;
+                    transform: rotate(0deg);
+                }
+            }
             &-block {
                 background-color: $color-shadow-black;
                 box-shadow: 0px 0px 3px 2px $color-shadow-black;
@@ -152,6 +174,27 @@
                 border-left: 2px solid $color-orange;
                 padding-left: 10px;
             }
+        }
+    }
+    .weather-error {
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        margin: 20px;
+        padding: 20px;
+        font-size: 30px;
+        font-weight: 700;
+        border-radius: 20px;
+
+        box-shadow: 0px 0px 3px 2px $color-shadow-black;
+        background-color: $color-shadow-black;
+
+        transition: opacity $defaultTransition, visibility $defaultTransition;
+
+        &.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
     }
 }
