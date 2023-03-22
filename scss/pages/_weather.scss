@@ -11,20 +11,21 @@
     .weather-section {
         display: flex;
         justify-content: center;
-    }
-    .weather-logo {
-        padding: 20px 50px;
-        background: $color-shadow-white;
-        box-shadow: 0px 0px 3px 2px $color-shadow-white;
-        margin: 100px 50px 0;
-        text-align: center;
+        
+        .weather-logo {
+            padding: 20px 50px;
+            background: $color-shadow-white;
+            box-shadow: 0px 0px 3px 2px $color-shadow-white;
+            margin: 100px 50px 0;
+            text-align: center;
 
-        h1 {
-            background-image: $gradient;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            font-size: 40px;
+            h1 {
+                background-image: $gradient;
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                font-size: 40px;
+            }
         }
     }
 
@@ -32,6 +33,11 @@
         justify-content: space-around;
         align-items: center;
         font-size: 30px;
+        flex-direction: column-reverse;
+
+        @media (min-width: 768px) {
+            flex-direction: row;            
+        }
 
         .weather-city {
             position: relative;
@@ -57,6 +63,9 @@
                 opacity: 1;
                 visibility: visible;
                 transition: opacity $defaultTransition, visibility $defaultTransition;
+                background: $gradient;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
 
                 position: absolute;
 
@@ -189,8 +198,6 @@
 
         box-shadow: 0px 0px 3px 2px $color-shadow-black;
         background-color: $color-shadow-black;
-
-        transition: opacity $defaultTransition, visibility $defaultTransition;
 
         &.hidden {
             opacity: 0;

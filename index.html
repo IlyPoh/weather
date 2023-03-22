@@ -8,7 +8,7 @@
     <meta name="description" content="Weather app">
 </head>
 <body>
-    <div class="weather-content">
+    <div class="weather-content is-loading">
         <div class="weather-section">
             <div class="weather-logo">
                 <h1>Weather app</h1>
@@ -87,7 +87,18 @@
             </div>
         </div>
         <div class="weather-error hidden">Your geolocation is turned off</div>
+        <div class="loading">
+            <div class="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     </div>
-    <script src="dist/main.js"></script>
 </body>
 </html>
