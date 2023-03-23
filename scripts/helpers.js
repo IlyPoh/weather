@@ -39,8 +39,25 @@ export function findWindDirection(windDeg) {
 }
 
 export function gettingError(message) {
-    const errorMessageElement = document.querySelector('.weather-error')
-    errorMessageElement.classList.remove('hidden')
-    errorMessageElement.innerHTML = message
+    const errorMessageBlockElement = document.querySelector('.weather-error')
+    errorMessageBlockElement.classList.remove('hidden')
+    const errorMessageTextElement = document.createElement('p')
+    errorMessageTextElement.innerHTML = message
+    errorMessageBlockElement.append(errorMessageTextElement)
     return;
+}
+
+export function firstCharToUpperCase(text) {
+    return text = text[0].toUpperCase() + text.slice(1)
+}
+
+export function responseErrorChecker(data) {
+    if (data.cod === 401) {
+        gettingError('Invalid API Key.')
+        return;
+    } else {
+        const message = firstCharToUpperCase(data.message)
+        gettingError(message)
+        return;
+    }
 }

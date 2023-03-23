@@ -1,4 +1,4 @@
-import { createDOMElement, gettingError } from './helpers.js';
+import { createDOMElement, gettingError, firstCharToUpperCase, responseErrorChecker } from './helpers.js';
 import { apiKey, cityList } from './data.js';
 import CityInfo from './city.js';
 
@@ -62,12 +62,18 @@ function selectedCityUpdate() {
 async function findCityByName(cityName) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`)
     const data = await response.json()
+    if (!response.ok) {
+        responseErrorChecker(data)
+    }
     updater(data)
 }
 
 async function findCityByGeolocation(lat, lon) {
     const response = await fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
     const data = await response.json()
+    if (!response.ok) {
+        responseErrorChecker(data)
+    }
     updater(data)
 }
 
@@ -85,7 +91,7 @@ function updateCity(city) {
         ele.innerHTML = ""
         ele.append(imageElement)
     })
-    city.secondState = city.secondState[0].toUpperCase() + city.secondState.slice(1)
+    city.secondState = firstCharToUpperCase(city.secondState)
     elements.direction.style.transform = `rotate(${city.windDeg}deg)`
 
     elements.temperatures.forEach( ele => ele.innerHTML = `${city.temp}° C`)
