@@ -23,8 +23,8 @@ const elements = {
 function userGeolocation() {
     navigator.geolocation.getCurrentPosition(
         (data) => {
-            const lat = data.coords.latitude
-            const lon = data.coords.longitude
+            const lat = data.coords.latitude;
+            const lon = data.coords.longitude;
             findCityByGeolocation(lat, lon)
         },
         (error) => {
@@ -113,8 +113,9 @@ document.addEventListener('click', (e) => {
     if (e.target.classList.contains('weather-city-city')) findCityByName(e.target.dataset.for);
 })
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     userGeolocation()
     createCityList(cityList)
-    setTimeout(() => animation(), 2000);
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+    animation();
 })
