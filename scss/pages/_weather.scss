@@ -146,7 +146,7 @@
                 border-radius: 20px;
                 width: 100%;
 
-                @media (min-width: 425px) {
+                @media (min-width: 480px) {
                     width: unset;
                 }
             }
@@ -178,10 +178,19 @@
             }
             &-additional-info {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(1, 1fr);
                 grid-gap: 10px;
                 border-left: 2px solid $color-orange;
                 padding-left: 10px;
+                white-space: nowrap;
+
+                @media (min-width: 375px) {
+                    grid-template-columns: repeat(2, 1fr);                    
+                }
+
+                @media (min-width: 425px) {
+                    grid-template-columns: repeat(3, 1fr);                    
+                }
             }
         }
     }
