@@ -8,7 +8,8 @@ export function createDOMElement(tagName, ...classNames) {
 
 export function getLocalTime(value) {
     const time = new Date()
-    const localTime = new Date(time.getTime() + (value * 1e3));
+    const currentUTCDate = new Date(time.getTime() + (time.getTimezoneOffset() * 60 * 1000));
+    const localTime = new Date(currentUTCDate.getTime() + (value * 1e3));
     let hours = localTime.getHours()
     const minutes = localTime.getMinutes().toString().padStart(2, '0')
     const date = localTime.getDate()
