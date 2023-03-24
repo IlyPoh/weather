@@ -1,5 +1,5 @@
 import { getLocalTime, dewPointCelsius, findWindDirection } from './helpers.js'
-export default class CityInfo {
+export class CityInfo {
     constructor(data) {
         const visibilityMetric = 1000
         

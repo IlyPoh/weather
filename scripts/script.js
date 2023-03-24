@@ -1,6 +1,6 @@
 import { createDOMElement, gettingError, firstCharToUpperCase, responseErrorChecker } from './helpers.js';
 import { apiKey, cityList } from './data.js';
-import CityInfo from './city.js';
+import { CityInfo } from './city.js';
 
 const elements = {
     citySelected: document.querySelector('.weather-city-selected'),
@@ -18,7 +18,8 @@ const elements = {
     dew: document.querySelector('.weather-dew'),
     visibility: document.querySelector('.weather-visibility'),
     loading: document.querySelector('.is-loading')
-  };
+};
+Object.freeze(elements)
 
 function userGeolocation() {
     navigator.geolocation.getCurrentPosition(
@@ -40,23 +41,27 @@ function userGeolocation() {
 
 function createCityList(list) {
     for (let i = 0; i < list.length; i++) {
+        const { cityList } = elements
         const city = createDOMElement('li', 'weather-city-city')
         city.innerHTML = list[i]
         city.setAttribute("data-for", list[i])
-        elements.cityList.append(city)
+        cityList.append(city)
     }
 }
 
 function toggleList() {
-    elements.cityList.classList.toggle('hidden')
+    const { cityList } = elements
+    cityList.classList.toggle('hidden')
 }
 
 function animation() {
-    elements.loading.classList.remove('is-loading')
+    const { loading } = elements
+    loading.classList.remove('is-loading')
 }
 
 function selectedCityUpdate() {
-    elements.citySelected.innerHTML = window.localStorage.getItem('userCity')
+    const { citySelected } = elements
+    citySelected.innerHTML = window.localStorage.getItem('userCity')
 }
 
 async function findCityByName(cityName) {
