@@ -22,10 +22,10 @@ export function getLocalTime(value) {
     return `${hours}:${minutes} ${ampm} ${currentMonth} ${date}`
 }
 export function dewPointCelsius(temperature, humidity) {
-    const a = 17.27;
-    const b = 237.7;
-    const alpha = ((a * temperature) / (b + temperature)) + Math.log(humidity / 100.0);
-    const dewPoint = Math.round((b * alpha) / (a - alpha));
+    const vaporPressureConstant = 17.27;
+    const saturationVaporPressureConstant = 237.7;
+    const alpha = ((vaporPressureConstant * temperature) / (saturationVaporPressureConstant + temperature)) + Math.log(humidity / 100.0);
+    const dewPoint = Math.round((saturationVaporPressureConstant * alpha) / (vaporPressureConstant - alpha));
     return dewPoint;
 }
 
