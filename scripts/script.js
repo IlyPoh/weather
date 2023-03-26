@@ -121,6 +121,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener("DOMContentLoaded", async () => {
     userGeolocation()
     createCityList(cityList)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    animation();
+    await new Promise(
+        (resolve) => setTimeout(resolve, 2000)
+    ).then(() => animation())
 })
