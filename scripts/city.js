@@ -1,8 +1,8 @@
 import { getLocalTime, dewPointCelsius, findWindDirection } from './helpers.js'
 export class CityInfo {
+    static visibilityMetric = 1000
+
     constructor(data) {
-        const visibilityMetric = 1000
-        
         this.name = data.name
         this.fullName = `${data.name}, ${data.sys.country}`
         this.temp = Math.round(data.main.temp)
