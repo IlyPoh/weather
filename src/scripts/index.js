@@ -1,2 +1,2 @@
 import '../scss/app.scss'
-import {} from "./script"
+import {} from "./components/script"

@@ -1,8 +1,9 @@
-import { createDOMElement, gettingError, firstCharToUpperCase, responseErrorChecker } from './helpers.js';
+import { createDOMElement, gettingError, firstCharToUpperCase, responseErrorChecker } from '../helpers/helpers.js';
 import { apiKey, cityList } from './data.js';
 import { CityInfo } from './city.js';
 
 const elements = {
+    content: document.querySelector('.weather-content'),
     citySelected: document.querySelector('.weather-city-selected'),
     cityList: document.querySelector('.weather-city-selection'),
     images: document.querySelectorAll('.weather-image'),
@@ -18,7 +19,6 @@ const elements = {
     humidity: document.querySelector('.weather-humidity'),
     dew: document.querySelector('.weather-dew'),
     visibility: document.querySelector('.weather-visibility'),
-    loading: document.querySelector('.is-loading')
 };
 Object.freeze(elements)
 
@@ -27,10 +27,16 @@ function userGeolocation() {
         (data) => {
             const lat = data.coords.latitude;
             const lon = data.coords.longitude;
-            findCityByGeolocation(lat, lon)
+            
+            if (!window.localStorage.getItem("userCity")) {
+                findCityByGeolocation(lat, lon)
+            } else {
+                findCityByName(window.localStorage.getItem('userCity'))
+            }
         },
         (error) => {
             gettingError(error.message)
+
             if (!window.localStorage.getItem("userCity")) {
                 findCityByName(cityList[0])
             } else {
@@ -61,9 +67,13 @@ function toggleList() {
     cityList.classList.toggle('hidden')
 }
 
-function animation() {
-    const { loading } = elements
-    loading.classList.remove('is-loading')
+function addAnimation() {
+    const { content } = elements
+    content.classList.add('is-loading')
+}
+function removeAnimation() {
+    const { content } = elements
+    content.classList.remove('is-loading')
 }
 
 function selectedCityUpdate() {
@@ -72,21 +82,26 @@ function selectedCityUpdate() {
 }
 
 async function findCityByName(cityName) {
+    toggleList()
+    addAnimation()
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`)
     const data = await response.json()
     if (!response.ok) {
         responseErrorChecker(data)
     }
     updater(data)
+    removeAnimation()
 }
 
 async function findCityByGeolocation(lat, lon) {
+    addAnimation()
     const response = await fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
     const data = await response.json()
     if (!response.ok) {
         responseErrorChecker(data)
     }
     updater(data)
+    removeAnimation()
 }
 
 function updater(data) {
@@ -123,14 +138,15 @@ function updateCity(city) {
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('weather-city-selected')) toggleList();
     if (e.target.classList.contains('weather-city-city')) findCityByName(e.target.dataset.for);
+    if (e.target.classList.contains('weather-local-city-button')) {
+        window.localStorage.clear()
+        userGeolocation()
+    };
 })
 
 document.addEventListener("DOMContentLoaded", async () => {
     iconLoader(elements.iconDirectionPointer, './images/icon-direction-pointer.svg')
     iconLoader(elements.iconPressure, './images/icon-pressure.svg')
-    userGeolocation()
     createCityList(cityList)
-    await new Promise(
-        (resolve) => setTimeout(resolve, 0)
-    ).then(() => animation())
+    userGeolocation()
 })

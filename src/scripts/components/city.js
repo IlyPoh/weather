@@ -1,4 +1,4 @@
-import { getLocalTime, dewPointCelsius, findWindDirection } from './helpers.js'
+import { getLocalTime, dewPointCelsius, findWindDirection } from '../helpers/helpers.js'
 export class CityInfo {
     static visibilityMetric = 1000
 
