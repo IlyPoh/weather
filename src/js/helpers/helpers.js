@@ -1,4 +1,4 @@
-import { months, directions } from "../components/data";
+import { months, directions } from "../components/config";
 
 export function createDOMElement(tagName, ...classNames) {
     const element = document.createElement(tagName);

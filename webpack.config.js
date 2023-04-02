@@ -5,7 +5,7 @@ const ImageMinimizerPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './src/scripts/index.js',
+    entry: './src/js/index.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),

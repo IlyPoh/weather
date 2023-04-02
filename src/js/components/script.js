@@ -1,5 +1,5 @@
 import { createDOMElement, gettingError, firstCharToUpperCase, responseErrorChecker } from '../helpers/helpers.js';
-import { apiKey, cityList } from './data.js';
+import { apiKey, cityList } from './config.js';
 import { CityInfo } from './city.js';
 
 const elements = {
