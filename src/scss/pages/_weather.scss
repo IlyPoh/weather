@@ -12,7 +12,7 @@
     .weather-section {
         display: flex;
         justify-content: center;
-        
+
         .weather-logo {
             padding: 20px 50px;
             background: $color-shadow-white;
@@ -42,7 +42,7 @@
         gap: 20px;
 
         @media (min-width: 768px) {
-            flex-direction: row;            
+            flex-direction: row;
         }
 
         .weather-city {
@@ -63,12 +63,13 @@
                     background: $color-shadow-black;
                 }
             }
-            
+
             &-selection {
                 min-width: 100%;
                 opacity: 1;
                 visibility: visible;
-                transition: opacity $defaultTransition, visibility $defaultTransition;
+                transition: opacity $defaultTransition,
+                    visibility $defaultTransition;
                 background: $gradient;
                 border-bottom-left-radius: 20px;
                 border-bottom-right-radius: 20px;
@@ -80,7 +81,7 @@
                     visibility: hidden;
                 }
             }
-            
+
             &-city {
                 padding: 5px 10px;
                 text-align: center;
@@ -114,17 +115,18 @@
                 background-image: $gradient;
                 background-clip: text;
                 -webkit-background-clip: text;
-                cursor: pointer;                
+                cursor: pointer;
                 padding: 10px 30px;
 
                 transition: color $defaultTransition;
             }
-            
+
             &:hover {
                 background: $color-shadow-black;
                 box-shadow: 0px 0px 3px 2px $color-shadow-black;
 
-                transition: background $defaultTransition, box-shadow $defaultTransition;
+                transition: background $defaultTransition,
+                    box-shadow $defaultTransition;
 
                 .weather-local-city-button {
                     color: $color-shadow-white;
@@ -155,7 +157,6 @@
         justify-content: flex-end;
 
         .weather-current {
-
             &-section {
                 display: flex;
                 align-items: center;
@@ -203,7 +204,7 @@
                 display: flex;
                 align-items: center;
                 font-size: 30px;
-                
+
                 img {
                     width: 60px;
                     height: 60px;
@@ -224,11 +225,11 @@
                 white-space: nowrap;
 
                 @media (min-width: 375px) {
-                    grid-template-columns: repeat(2, 1fr);                    
+                    grid-template-columns: repeat(2, 1fr);
                 }
 
                 @media (min-width: 425px) {
-                    grid-template-columns: repeat(3, 1fr);                    
+                    grid-template-columns: repeat(3, 1fr);
                 }
             }
         }
@@ -237,7 +238,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        
+
         margin: 20px;
         padding: 20px;
         font-size: 30px;

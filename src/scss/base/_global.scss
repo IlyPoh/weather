@@ -15,7 +15,6 @@ body {
     position: absolute;
 }
 .is-loading {
-
     .loading {
         inset: 0;
         display: flex;
@@ -35,7 +34,7 @@ body {
             transform-origin: 40px 40px;
         }
         div:after {
-            content: " ";
+            content: ' ';
             display: block;
             position: absolute;
             width: 7px;
@@ -100,13 +99,13 @@ body {
             top: 56px;
             left: 12px;
         }
-      }
-      @keyframes lds-roller {
+    }
+    @keyframes lds-roller {
         0% {
             transform: rotate(0deg);
         }
         100% {
             transform: rotate(360deg);
         }
-    }  
+    }
 }

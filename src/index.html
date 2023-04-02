@@ -1,88 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather app</title>
-    <meta name="description" content="Weather app">
-</head>
-<body>
-    <div class="weather-content is-loading">
-        <div class="weather-section">
-            <div class="weather-logo">
-                <h1>Weather app</h1>
-            </div>
-        </div>
-        <div class="weather-section weather-header">
-            <div class="weather-city">
-                <div class="weather-city-selected"></div>
-                <ul class="weather-city-selection hidden">
-                </ul>
-            </div>
-            <div class="weather-local-city">
-                <button class="weather-local-city-button" title="Requires geolocation">Your city weather</button>
-            </div>
-            <div class="weather-current">
-                <div class="weather-image"></div>
-            </div>
-        </div>
-        <div class="weather-section weather-body">
-            <div class="weather-current">
-                <div class="weather-current-temperature">
-                    <span class="weather-temperature"></span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather app</title>
+        <meta name="description" content="Weather app" />
+    </head>
+    <body>
+        <div class="weather-content is-loading">
+            <div class="weather-section">
+                <div class="weather-logo">
+                    <h1>Weather app</h1>
                 </div>
-                <div class="weather-current-state"></div>
             </div>
-        </div>
-        <div class="weather-section weather-footer">
-            <div class="weather-current-block">
-                <div class="weather-current-time"></div>
-                <div class="weather-current-city"></div>
-                <div class="weather-current-temperature">
+            <div class="weather-section weather-header">
+                <div class="weather-city">
+                    <div class="weather-city-selected"></div>
+                    <ul class="weather-city-selection hidden"></ul>
+                </div>
+                <div class="weather-local-city">
+                    <button
+                        class="weather-local-city-button"
+                        title="Requires geolocation"
+                    >
+                        Your city weather
+                    </button>
+                </div>
+                <div class="weather-current">
                     <div class="weather-image"></div>
-                    <div>
+                </div>
+            </div>
+            <div class="weather-section weather-body">
+                <div class="weather-current">
+                    <div class="weather-current-temperature">
                         <span class="weather-temperature"></span>
                     </div>
+                    <div class="weather-current-state"></div>
                 </div>
-                <div class="weather-current-info"></div>
-                <div class="weather-current-additional-info">
-                    <div class="weather-current-section">
-                        <div class="weather-icon weather-direction-pointer-svg"></div>
-                        <span class="weather-wind"></span>
+            </div>
+            <div class="weather-section weather-footer">
+                <div class="weather-current-block">
+                    <div class="weather-current-time"></div>
+                    <div class="weather-current-city"></div>
+                    <div class="weather-current-temperature">
+                        <div class="weather-image"></div>
+                        <div>
+                            <span class="weather-temperature"></span>
+                        </div>
                     </div>
-                    <div class="weather-current-section">
-                        <div class="weather-icon weather-pressure-svg"></div>
-                        <span class="weather-pressure"></span>
-                    </div>
-                    <div class="weather-current-section">
-                        Humidity:
-                        <span class="weather-humidity"></span>
-                    </div>
-                    <div class="weather-current-section">
-                        Dew point: 
-                        <span class="weather-dew"></span>
-                    </div>
-                    <div class="weather-current-section">
-                        Visibility: 
-                        <span class="weather-visibility"></span>
+                    <div class="weather-current-info"></div>
+                    <div class="weather-current-additional-info">
+                        <div class="weather-current-section">
+                            <div
+                                class="weather-icon weather-direction-pointer-svg"
+                            ></div>
+                            <span class="weather-wind"></span>
+                        </div>
+                        <div class="weather-current-section">
+                            <div
+                                class="weather-icon weather-pressure-svg"
+                            ></div>
+                            <span class="weather-pressure"></span>
+                        </div>
+                        <div class="weather-current-section">
+                            Humidity:
+                            <span class="weather-humidity"></span>
+                        </div>
+                        <div class="weather-current-section">
+                            Dew point:
+                            <span class="weather-dew"></span>
+                        </div>
+                        <div class="weather-current-section">
+                            Visibility:
+                            <span class="weather-visibility"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="weather-error hidden"></div>
-        <div class="loading">
-            <div class="lds-roller">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="weather-error hidden"></div>
+            <div class="loading">
+                <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
