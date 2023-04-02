@@ -40,11 +40,11 @@ function userGeolocation() {
 }
 
 function createCityList(list) {
-    for (let i = 0; i < list.length; i++) {
+    for (const listItem of list) {
         const { cityList } = elements
         const city = createDOMElement('li', 'weather-city-city')
-        city.innerHTML = list[i]
-        city.setAttribute("data-for", list[i])
+        city.innerHTML = listItem
+        city.setAttribute("data-for", listItem)
         cityList.append(city)
     }
 }

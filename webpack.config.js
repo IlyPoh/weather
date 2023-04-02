@@ -1,10 +1,10 @@
 const path = require('path');
 const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const ImageMinimizerPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = {
-    entry: './scripts/index.js',
+    entry: './src/scripts/index.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
@@ -13,10 +13,42 @@ module.exports = {
     plugins: [
         new Webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: './src/index.html',
             minify: true,
             filename: 'index.html'
-        })
+        }),
+        new ImageMinimizerPlugin({
+            minimizerOptions: {
+                plugins: [
+                    ['svgo', {
+                        plugins: [
+                            {
+                                name: 'preset-default',
+                                params: {
+                                    overrides: {
+                                        removeViewBox: false,
+                                        addAttributesToSVGElement: {
+                                            params: {
+                                                attributes: [
+                                                    { xmlns: "http://www.w3.org/2000/svg" },
+                                                ],
+                                            },
+                                        },
+                                    },
+                                },
+                            }
+                        ]
+                    }]
+                ]
+            },
+            test: /\.svg$/i,
+            include: path.resolve(__dirname, 'src'),
+            exclude: /node_modules/,
+            filename: '[path][name].[ext]',
+            deleteOriginalAssets: true,
+            publicPath: '',
+            severityError: 'warning'
+        }),
     ],
     module: {
         rules: [
@@ -28,11 +60,15 @@ module.exports = {
                     {
                         loader: "sass-loader",
                         options: {
-                        // Prefer `dart-sass`
-                        implementation: require("sass"),
+                            // Prefer `dart-sass`
+                            implementation: require("sass"),
                         },
                     },
                 ],
+            },
+            {
+                test: /\.(svg)$/i,
+                type: "asset",
             },
         ]
     },
@@ -44,5 +80,5 @@ module.exports = {
         liveReload: true,
         compress: true,
         hot: false,
-    }
+    },
 }

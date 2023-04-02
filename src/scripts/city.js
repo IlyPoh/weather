@@ -16,7 +16,7 @@ export class CityInfo {
         this.windSpeed = data.wind.speed
         this.pressure = data.main.pressure
         this.humidity = data.main.humidity
-        this.dew = dewPointCelsius(data.main.temp, data.main.humidity),
-        this.visibility = (data.visibility / visibilityMetric).toFixed(1)
+        this.dew = dewPointCelsius(data.main.temp, data.main.humidity)
+        this.visibility = (data.visibility / this.visibilityMetric).toFixed(1)
     }
 }

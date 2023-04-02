@@ -45,20 +45,17 @@ export function gettingError(message) {
     const errorMessageTextElement = document.createElement('p')
     errorMessageTextElement.innerHTML = message
     errorMessageBlockElement.append(errorMessageTextElement)
-    return;
 }
 
 export function firstCharToUpperCase(text) {
-    return text = text[0].toUpperCase() + text.slice(1)
+    return text[0].toUpperCase() + text.slice(1)
 }
 
 export function responseErrorChecker(data) {
     if (data.cod === 401) {
         gettingError('Invalid API Key.')
-        return;
     } else {
         const message = firstCharToUpperCase(data.message)
         gettingError(message)
-        return;
     }
 }

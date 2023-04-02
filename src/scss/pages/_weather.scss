@@ -96,7 +96,8 @@
         }
 
         img {
-            max-width: 100px;
+            width: 100px;
+            height: 100px;
         }
     }
 
@@ -124,7 +125,8 @@
                 line-height: 14px;
 
                 svg {
-                    max-width: 14px;
+                    width: 14px;
+                    height: auto;
                 }
                 g {
                     fill: $color-white;
@@ -167,7 +169,8 @@
                 font-size: 30px;
                 
                 img {
-                    max-width: 60px;
+                    width: 60px;
+                    height: 60px;
                 }
                 span {
                     font-weight: 500;
