@@ -2,6 +2,7 @@ const path = require('path');
 const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/scripts/index.js',
@@ -49,6 +50,11 @@ module.exports = {
             publicPath: '',
             severityError: 'warning'
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/images', to: 'images' }
+            ]
+        })
     ],
     module: {
         rules: [

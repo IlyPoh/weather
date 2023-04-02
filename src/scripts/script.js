@@ -11,7 +11,8 @@ const elements = {
     currentTime: document.querySelector('.weather-current-time'),
     currentCity: document.querySelector('.weather-current-city'),
     currentInfo: document.querySelector('.weather-current-info'),
-    direction: document.querySelector('.icon-direction-pointer'),
+    iconDirectionPointer: document.querySelector('.weather-direction-pointer-svg'),
+    iconPressure: document.querySelector('.weather-pressure-svg'),
     wind: document.querySelector('.weather-wind'),
     pressure: document.querySelector('.weather-pressure'),
     humidity: document.querySelector('.weather-humidity'),
@@ -47,6 +48,12 @@ function createCityList(list) {
         city.setAttribute("data-for", listItem)
         cityList.append(city)
     }
+}
+
+function iconLoader(element, link) {
+    const imageElement = new Image()
+    imageElement.src = link
+    element.append(imageElement)
 }
 
 function toggleList() {
@@ -97,7 +104,7 @@ function updateCity(city) {
         ele.append(imageElement)
     })
     city.secondState = firstCharToUpperCase(city.secondState)
-    elements.direction.style.transform = `rotate(${city.windDeg}deg)`
+    elements.iconDirectionPointer.style.transform = `rotate(${city.windDeg}deg)`
 
     elements.temperatures.forEach( ele => ele.innerHTML = `${city.temp}° C`)
     elements.currentState.innerHTML = `${city.secondState}`
@@ -119,9 +126,11 @@ document.addEventListener('click', (e) => {
 })
 
 document.addEventListener("DOMContentLoaded", async () => {
+    iconLoader(elements.iconDirectionPointer, './images/icon-direction-pointer.svg')
+    iconLoader(elements.iconPressure, './images/icon-pressure.svg')
     userGeolocation()
     createCityList(cityList)
     await new Promise(
-        (resolve) => setTimeout(resolve, 2000)
+        (resolve) => setTimeout(resolve, 0)
     ).then(() => animation())
 })
