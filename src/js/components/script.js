@@ -80,19 +80,21 @@ function updater(data) {
 }
 
 function updateCity(city) {
-    elements.images.forEach((ele) => {
+    elements.images.forEach((img) => {
         const imageElement = document.createElement('img');
         imageElement.setAttribute(
             'src',
             `https://openweathermap.org/img/wn/${city.icon}@2x.png`
         );
-        ele.innerHTML = '';
-        ele.append(imageElement);
+        img.innerHTML = '';
+        img.append(imageElement);
     });
     city.secondState = firstCharToUpperCase(city.secondState);
     elements.iconDirectionPointer.style.transform = `rotate(${city.windDeg}deg)`;
 
-    elements.temperatures.forEach((ele) => (ele.innerHTML = `${city.temp}° C`));
+    elements.temperatures.forEach(
+        (elem) => (elem.innerHTML = `${city.temp}° C`)
+    );
     elements.currentState.innerHTML = `${city.secondState}`;
     elements.currentTime.innerHTML = `${city.time}`;
     elements.currentCity.innerHTML = `${city.fullName}`;
