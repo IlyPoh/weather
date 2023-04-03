@@ -1,3 +1,3 @@
 import '../scss/app.scss';
-import { App } from './components/script';
+import { App } from './components/app';
 App();
