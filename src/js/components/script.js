@@ -4,7 +4,8 @@ import {
     responseErrorChecker,
     createCityList,
     iconLoader,
-    toggleList,
+    openList,
+    closeList,
     addAnimation,
     removeAnimation,
 } from '../helpers/helpers.js';
@@ -43,7 +44,6 @@ function selectedCityUpdate() {
 
 async function findCityByName(cityName) {
     try {
-        toggleList();
         addAnimation();
         const response = await fetch(fetchWeatherByCity(cityName));
         const data = await response.json();
@@ -110,9 +110,11 @@ function updateCity(city) {
 
 export function App() {
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('weather-city-selected')) toggleList();
-        if (e.target.classList.contains('weather-city-city'))
+        if (e.target.classList.contains('weather-city-selected')) openList();
+        if (e.target.classList.contains('weather-city-city')) {
+            closeList();
             findCityByName(e.target.dataset.for);
+        }
         if (e.target.classList.contains('weather-local-city-button')) {
             localStorage.clear();
             userGeolocation();

@@ -88,9 +88,13 @@ export function iconLoader(element, link) {
     element.append(imageElement);
 }
 
-export function toggleList() {
+export function closeList() {
     const { cityList } = elements;
-    cityList.classList.toggle('hidden');
+    cityList.classList.add('hidden');
+}
+export function openList() {
+    const { cityList } = elements;
+    cityList.classList.remove('hidden');
 }
 
 export function addAnimation() {
