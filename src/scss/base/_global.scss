@@ -18,7 +18,7 @@ body {
         div {
             opacity: 0;
             visibility: hidden;
-            transition: opacity 1s ease, visibility 1s ease;
+            transition: opacity 0.5s ease 0.5s, visibility 0.5s ease 0.5s;
         }
     }
 }
@@ -29,7 +29,7 @@ body {
         align-items: center;
         justify-content: center;
         backdrop-filter: blur(30px);
-        transition: backdrop-filter 1s ease;
+        transition: backdrop-filter 0.5s ease 0.5s;
     }
 
     .lds-roller {
