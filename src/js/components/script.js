@@ -110,12 +110,20 @@ function updateCity(city) {
 
 export function App() {
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('weather-city-selected')) openList();
+        if (e.target.classList.contains('weather-city-selected')) {
+            const { cityList } = elements;
+            if (cityList.classList.contains('hidden')) {
+                openList();
+            } else {
+                closeList();
+            }
+        }
         if (e.target.classList.contains('weather-city-city')) {
             closeList();
             findCityByName(e.target.dataset.for);
         }
         if (e.target.classList.contains('weather-local-city-button')) {
+            closeList();
             localStorage.clear();
             userGeolocation();
         }
